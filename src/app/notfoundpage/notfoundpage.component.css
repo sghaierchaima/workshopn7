@@ -1,0 +1,11 @@
+/* not-found-page.component.css */
+.not-found {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .not-found h1 {
+    color: red;
+  }
+  

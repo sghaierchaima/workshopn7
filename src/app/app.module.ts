@@ -10,6 +10,10 @@ import { ListCategoriesComponentComponent } from './list-categories-component/li
 import { FilterCategoryPipe } from './filter-category.pipe';
 import { FilterStringPipe } from './filter-string.pipe';
 import { HighlightDirective } from './directive/highlight.directive';
+import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
+import { ProductsCategoryComponent } from './products-category/products-category.component';
+import { ProductsCategoryQPComponent } from './products-category-qp/products-category-qp.component';
+import { DetailsCategoryComponent } from './details-category/details-category.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +22,10 @@ import { HighlightDirective } from './directive/highlight.directive';
     FootercomponentComponent,
     HomeComponentComponent,
     ListCategoriesComponentComponent,
+    NotfoundpageComponent,
+    ProductsCategoryComponent,
+    ProductsCategoryQPComponent,
+    DetailsCategoryComponent
    
   ],
   imports: [
@@ -26,7 +34,8 @@ import { HighlightDirective } from './directive/highlight.directive';
     FormsModule,
     FilterCategoryPipe,
     FilterStringPipe,
-    HighlightDirective
+    HighlightDirective,
+    AppRoutingModule,
   ],
   providers: [
     provideClientHydration(withEventReplay())

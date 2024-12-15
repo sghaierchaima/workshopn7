@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+      <!-- Boucle sur les produits filtrés et affichage -->
+      <div *ngFor="let product of filteredProducts" class="col-md-4" style="margin-bottom: 20px">
+        <div>
+          <img [src]="product.image" [alt]="product.name" class="img-fluid h-50 w-75">
+          <h3>{{ product.name | uppercase }}</h3>
+          <p>{{ product.description || 'Aucune description disponible' }}</p>
+          <p><strong>Prix: </strong>{{ product.price | currency }}</p>
+          <button (click)="showCategoryDetails(product.categoryId)">Voir détails</button>
+          <p><strong>Marque: </strong>{{ product.brand }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-details-category *ngIf="categoryDescription" [categoryDescription]="categoryDescription"></app-details-category>
+  

@@ -11,7 +11,15 @@
         <h3>{{ category.title | uppercase }}</h3>
         <p *ngIf="!category.available">Catégorie non disponible</p>
         <p *ngIf="category.available">{{ category.description || 'Aucune description disponible' }}</p>
-        <button *ngIf="category.available" class="btn btn-primary">Voir produits</button>
+        <button *ngIf="category.available" class="btn btn-primary" [routerLink]="['/products-category', category.id]">Voir produits</button>
+        <!-- Bouton pour voir les produits avec queryParam -->
+      
+
+        <button *ngIf="category.available" class="btn btn-primary" 
+          [routerLink]="['/products-category-qp']" 
+          [queryParams]="{id: category.id}">
+          Voir produits 2
+        </button>
       </div>
     </div>
   </div>
