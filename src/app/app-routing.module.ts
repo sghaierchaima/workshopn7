@@ -4,6 +4,7 @@ import { HomeComponentComponent } from './home-component/home-component.componen
 import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
 import { ProductsCategoryComponent } from './products-category/products-category.component';
 import { ProductsCategoryQPComponent } from './products-category-qp/products-category-qp.component';
+import { FormProductComponent } from './form-product/form-product.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./contact/contact.module').then((m) => m.ContactModule),
   },
+  { path: 'add-product', component: FormProductComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponentComponent },
   { path: 'products-category/:id', component: ProductsCategoryComponent },

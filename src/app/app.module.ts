@@ -14,6 +14,7 @@ import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
 import { ProductsCategoryComponent } from './products-category/products-category.component';
 import { ProductsCategoryQPComponent } from './products-category-qp/products-category-qp.component';
 import { DetailsCategoryComponent } from './details-category/details-category.component';
+import { FormProductComponent } from './form-product/form-product.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DetailsCategoryComponent } from './details-category/details-category.co
     NotfoundpageComponent,
     ProductsCategoryComponent,
     ProductsCategoryQPComponent,
-    DetailsCategoryComponent
+    DetailsCategoryComponent,
+    FormProductComponent
    
   ],
   imports: [

@@ -1,0 +1,55 @@
+<form #formProduct="ngForm" (ngSubmit)="saveProduct()">
+    <div>
+      <label for="name">Product Name</label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        [(ngModel)]="product.name" 
+        required 
+        minlength="5" 
+        pattern="[a-zA-Z]*" 
+        #name="ngModel"
+      />
+      <div *ngIf="name.invalid && (name.dirty || name.touched)">
+        <p *ngIf="name.errors?.['required']">Name is required.</p>
+        <p *ngIf="name.errors?.['minlength']">Name must be at least 5 characters.</p>
+        <p *ngIf="name.errors?.['pattern']">Name must contain only letters.</p>
+      </div>
+    </div>
+  
+    <div>
+      <label for="categoryId">Category ID</label>
+      <input 
+        type="number" 
+        id="categoryId" 
+        name="categoryId" 
+        [(ngModel)]="product.categoryId" 
+        required
+        #categoryId="ngModel"
+      />
+      <div *ngIf="categoryId.invalid && (categoryId.dirty || categoryId.touched)">
+        <p *ngIf="categoryId.errors?.['required']">Category ID is required.</p>
+      </div>
+    </div>
+  
+    <div>
+      <label for="price">Price</label>
+      <input 
+        type="number" 
+        id="price" 
+        name="price" 
+        [(ngModel)]="product.price" 
+        required 
+        pattern="^\d+(\.\d+)?$" 
+        #price="ngModel"
+      />
+      <div *ngIf="price.invalid && (price.dirty || price.touched)">
+        <p *ngIf="price.errors?.['required']">Price is required.</p>
+        <p *ngIf="price.errors?.['pattern']">Price must be a valid number.</p>
+      </div>
+    </div>
+  
+    <button [disabled]="formProduct.invalid" type="submit">Save</button>
+  </form>
+  
