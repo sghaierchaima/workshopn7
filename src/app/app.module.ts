@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponentComponent } from './header-component/header-component.component';
@@ -16,6 +16,7 @@ import { ProductsCategoryQPComponent } from './products-category-qp/products-cat
 import { DetailsCategoryComponent } from './details-category/details-category.component';
 import { FormProductComponent } from './form-product/form-product.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,9 @@ import { FormProductComponent } from './form-product/form-product.component';
     ProductsCategoryComponent,
     ProductsCategoryQPComponent,
     DetailsCategoryComponent,
-    FormProductComponent
+    FormProductComponent,
+    
+   
    
   ],
   imports: [
@@ -38,6 +41,8 @@ import { FormProductComponent } from './form-product/form-product.component';
     FilterStringPipe,
     HighlightDirective,
     AppRoutingModule,
+    ReactiveFormsModule,
+   
   ],
   providers: [
     provideClientHydration(withEventReplay())

@@ -1,55 +1,41 @@
-<form #formProduct="ngForm" (ngSubmit)="saveProduct()">
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  
     <div>
-      <label for="name">Product Name</label>
-      <input 
-        type="text" 
-        id="name" 
-        name="name" 
-        [(ngModel)]="product.name" 
-        required 
-        minlength="5" 
-        pattern="[a-zA-Z]*" 
-        #name="ngModel"
-      />
-      <div *ngIf="name.invalid && (name.dirty || name.touched)">
-        <p *ngIf="name.errors?.['required']">Name is required.</p>
-        <p *ngIf="name.errors?.['minlength']">Name must be at least 5 characters.</p>
-        <p *ngIf="name.errors?.['pattern']">Name must contain only letters.</p>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name">
+      <div *ngIf="isFieldInvalid('name')">
+        <small *ngIf="productForm.controls['name'].hasError('required')">Name is required.</small>
+        <small *ngIf="productForm.controls['name'].hasError('pattern')">Name must contain only letters.</small>
+        <small *ngIf="productForm.controls['name'].hasError('minlength')">Name must be at least 5 characters long.</small>
+      </div>
+    </div>
+    
+    <div>
+      <label for="categoryId">Category ID:</label>
+      <input id="categoryId" formControlName="categoryId">
+      <div *ngIf="isFieldInvalid('categoryId')">
+        <small *ngIf="productForm.controls['categoryId'].hasError('required')">Category ID is required.</small>
       </div>
     </div>
   
     <div>
-      <label for="categoryId">Category ID</label>
-      <input 
-        type="number" 
-        id="categoryId" 
-        name="categoryId" 
-        [(ngModel)]="product.categoryId" 
-        required
-        #categoryId="ngModel"
-      />
-      <div *ngIf="categoryId.invalid && (categoryId.dirty || categoryId.touched)">
-        <p *ngIf="categoryId.errors?.['required']">Category ID is required.</p>
+      <label for="price">Price:</label>
+      <input id="price" formControlName="price">
+      <div *ngIf="isFieldInvalid('price')">
+        <small *ngIf="productForm.controls['price'].hasError('required')">Price is required.</small>
+        <small *ngIf="productForm.controls['price'].hasError('pattern')">Price must be a valid number.</small>
       </div>
     </div>
   
     <div>
-      <label for="price">Price</label>
-      <input 
-        type="number" 
-        id="price" 
-        name="price" 
-        [(ngModel)]="product.price" 
-        required 
-        pattern="^\d+(\.\d+)?$" 
-        #price="ngModel"
-      />
-      <div *ngIf="price.invalid && (price.dirty || price.touched)">
-        <p *ngIf="price.errors?.['required']">Price is required.</p>
-        <p *ngIf="price.errors?.['pattern']">Price must be a valid number.</p>
+      <label for="promotion">Promotion:</label>
+      <input id="promotion" formControlName="promotion">
+      <div *ngIf="isFieldInvalid('promotion')">
+        <small *ngIf="productForm.controls['promotion'].hasError('pattern')">Promotion must be a number less than or equal to 100.</small>
       </div>
     </div>
   
-    <button [disabled]="formProduct.invalid" type="submit">Save</button>
+    <button type="submit" [disabled]="productForm.invalid">Save</button>
+    
   </form>
   
