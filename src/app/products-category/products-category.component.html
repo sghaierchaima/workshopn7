@@ -7,11 +7,10 @@
           <h3>{{ product.name | uppercase }}</h3>
           <p>{{ product.description || 'Aucune description disponible' }}</p>
           <p><strong>Prix: </strong>{{ product.price | currency }}</p>
-          <button (click)="showCategoryDetails(product.categoryId)">Voir détails</button>
+         
           <p><strong>Marque: </strong>{{ product.brand }}</p>
         </div>
       </div>
     </div>
   </div>
-  <app-details-category *ngIf="categoryDescription" [categoryDescription]="categoryDescription"></app-details-category>
   

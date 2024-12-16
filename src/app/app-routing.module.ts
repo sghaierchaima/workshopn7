@@ -6,6 +6,26 @@ import { ProductsCategoryComponent } from './products-category/products-category
 import { ProductsCategoryQPComponent } from './products-category-qp/products-category-qp.component';
 
 const routes: Routes = [
+  {
+    path: 'products',
+    loadChildren: () =>
+      import('./product/product.module').then((m) => m.ProductModule),
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./profile/profile.module').then((m) => m.ProfileModule),
+  },
+  {
+    path: 'apropos',
+    loadChildren: () =>
+      import('./apropos/apropos.module').then((m) => m.AproposModule),
+  },
+  {
+    path: 'contact',
+    loadChildren: () =>
+      import('./contact/contact.module').then((m) => m.ContactModule),
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponentComponent },
   { path: 'products-category/:id', component: ProductsCategoryComponent },

@@ -39,10 +39,5 @@ export class ProductsCategoryComponent implements OnInit {
      ];
 
      filteredProducts: Product[] = []; // Produits filtrés selon la catégorie
-     showCategoryDetails(categoryId: number): void {
-      const category = this.listCategories.find(cat => cat.id === categoryId);
-      if (category) {
-        this.categoryDescription = category.description;
-      }
-    }
+     
 }
